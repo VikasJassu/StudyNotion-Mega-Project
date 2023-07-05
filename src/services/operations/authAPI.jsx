@@ -16,7 +16,9 @@ const {
 
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
+     const toastId = toast.loading('Loading...', {
+    id: 'loading',
+  });
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
@@ -53,7 +55,9 @@ export function signUp(
   navigate
 ) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
+     const toastId = toast.loading('Loading...', {
+    id: 'loading',
+  });
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", SIGNUP_API, {
@@ -85,7 +89,9 @@ export function signUp(
 
 export function login(email, password, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
+     const toastId = toast.loading('Loading...', {
+    id: 'loading',
+  });
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", LOGIN_API, {

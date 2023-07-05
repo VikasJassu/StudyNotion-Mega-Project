@@ -5,15 +5,16 @@ import BannerImage2 from "../assets/Images/aboutus2.webp"
 import BannerImage3 from "../assets/Images/aboutus3.webp"
 import Quote from '../components/core/AboutPage/Quote'
 import FoundingStory from "../assets/Images/FoundingStory.png"
-import StatsComponent from '../components/core/AboutPage/Stats'
+import StatsComponenet from "../components/core/AboutPage/Stats"
 import LearningGrid from '../components/core/AboutPage/LearningGrid'
 import ContactFormSection from '../components/core/AboutPage/ContactFormSection'
 import Footer from '../components/common/Footer'
+import ReviewSlider from "../components/common/ReviewSlider"
 
 const About = () => {
   return (
     <div>
-      <section className="bg-richblack-700">
+      <section className="bg-richblack-800">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
@@ -26,8 +27,8 @@ const About = () => {
             </p>
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
-          <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
-            <img src={BannerImage1} alt=""  className='rounded-md'/>
+          <div className="absolute  bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
+            <img src={BannerImage1} alt="" className='rounded-md'/>
             <img src={BannerImage2} alt="" className='rounded-md'/>
             <img src={BannerImage3} alt="" className='rounded-md'/>
           </div>
@@ -70,7 +71,7 @@ const About = () => {
               <img
                 src={FoundingStory}
                 alt=""
-                className="shadow-[0_0_20px_0] shadow-[#FC6767] rounded-md"
+                className="shadow-[0_0_20px_0] shadow-[#FC6767]"
               />
             </div>
           </div>
@@ -100,7 +101,7 @@ const About = () => {
         </div>
       </section>
 
-      <StatsComponent />
+      <StatsComponenet />
       <section className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
         <LearningGrid />
         <ContactFormSection />
@@ -112,7 +113,10 @@ const About = () => {
           Reviews from other learners
         </h1>
         {/* <ReviewSlider /> */}
+       
       </div>
+      <ReviewSlider />
+      {/* <Footer /> */}
       <Footer />
     </div>
   )
