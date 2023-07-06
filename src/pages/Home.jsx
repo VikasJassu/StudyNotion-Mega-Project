@@ -64,7 +64,7 @@ function Home() {
           </div>
   
           {/* Code Section 1  */}
-          <div>
+          <div className=''>
             <CodeBlocks
               position={"lg:flex-row"}
               heading={

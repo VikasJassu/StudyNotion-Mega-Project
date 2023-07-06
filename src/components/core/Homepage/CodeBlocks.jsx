@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CTAButton from "../Homepage/Button"
 import HighlightText from './HighlightText'
 import {FaArrowRight} from "react-icons/fa"
 import { TypeAnimation } from 'react-type-animation'
 
+
+
 const CodeBlocks = ({
     position, heading, subheading, ctabtn1, ctabtn2, codeblock, backgroudGradient, codeColor
 }) => {
+
+   
   return (
     <div className={`flex ${position} my-20 justify-between gap-10`}>
       
@@ -34,10 +38,10 @@ const CodeBlocks = ({
     </div>
 
      {/*Section 2*/}
-     <div className=' h-fit  flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px]'> 
+     <div className=' h-fit  flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px] border border-[rgb(220,20,60,0.5)] bg-[rgba(20,160,220,0.3)]'> 
         {/*HW -> BG gradient*/}
 
-        <div className='text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold'>
+        <div className='text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold z-20'>
             <p>1</p>
             <p>2</p>
             <p>3</p>
@@ -51,7 +55,7 @@ const CodeBlocks = ({
             <p>11</p>
         </div>
 
-        <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}>
+        <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2 z-20`}>
            <TypeAnimation
             sequence={[codeblock, 2000, ""]}
             repeat={Infinity}
@@ -62,7 +66,7 @@ const CodeBlocks = ({
                     whiteSpace: "pre-line",
                     display:"block",
                 }
-            }
+            }   
             omitDeletionAnimation={true}
            />
         </div>

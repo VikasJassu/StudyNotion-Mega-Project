@@ -86,6 +86,7 @@ export default function CourseReviewModal({ setReviewModal }) {
               </label>
               <textarea
                 id="courseExperience"
+                type="input"
                 placeholder="Add Your Experience"
                 {...register("courseExperience", { required: true })}
                 className="form-style resize-x-none min-h-[130px] w-full"

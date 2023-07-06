@@ -411,7 +411,13 @@ export const createRating = async (data, token) => {
   } catch (error) {
     success = false
     console.log("CREATE RATING API ERROR............", error)
-    toast.error(error.message)
+    if(error.message === "Request failed with status code 403") {
+      toast.error("One review per person is allowed")
+    }
+    else{
+      toast.error(error.message)
+    }
+    
   }
   toast.dismiss(toastId)
   return success

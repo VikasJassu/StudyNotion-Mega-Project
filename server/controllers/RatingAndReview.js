@@ -1,4 +1,4 @@
-const RatingAndReview = require("../models/RatingAndRaview");
+const RatingAndReview = require("../models/RatingAndReview");
 const Course = require("../models/Course");
 const {default: mongoose } = require("mongoose");
 
@@ -9,12 +9,15 @@ exports.createRating = async (req, res) => {
         //get user id
         const userId = req.user.id;
         //fetchdata from req body
-        const {courseId,rating, review} = req.body;
-        //check if user is enrolled or not
+        const {rating, review, courseId} = req.body;
+
+        
+        // //check if user is enrolled or not
         const courseDetails = await Course.findOne(
                                     {_id:courseId,
-                                    studentsEnrolled: {$elemMatch: {$eq: userId} },
-                                });
+                                    studentsEnrolled: {$elemMatch: {$eq: userId}},
+                                }) 
+        console.log("course details",courseDetails);                        
 
         if(!courseDetails) {
             return res.status(404).json({
@@ -22,11 +25,12 @@ exports.createRating = async (req, res) => {
                 message:'Student is not enrolled in the course',
             });
         }
-        //check if user already reviewed the course
+        // check if user already reviewed the course
         const alreadyReviewed = await RatingAndReview.findOne({
                                                 user:userId,
                                                 course:courseId,
                                             });
+                                       
         if(alreadyReviewed) {
                     return res.status(403).json({
                         success:false,
@@ -34,11 +38,16 @@ exports.createRating = async (req, res) => {
                     });
                 }
         //create rating and review
+        console.log("printing all data",rating);
+        console.log("printing all data",review);
+        console.log("printing all data",courseId);
         const ratingReview = await RatingAndReview.create({
-                                        rating, review, 
+                                        rating, 
+                                        review, 
                                         course:courseId,
                                         user:userId,
                                     });
+        
        
         //update course with this rating/review
         const updatedCourseDetails = await Course.findByIdAndUpdate({_id:courseId},
@@ -48,7 +57,7 @@ exports.createRating = async (req, res) => {
                                         }
                                     },
                                     {new: true});
-        console.log(updatedCourseDetails);
+        console.log("updated course",updatedCourseDetails);
         //return response
         return res.status(200).json({
             success:true,
