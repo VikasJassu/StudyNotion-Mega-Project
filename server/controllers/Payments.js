@@ -140,6 +140,7 @@ exports.sendPaymentSuccessEmail = async (req, res) => {
         // Find the course and enroll the student in it
         const enrolledCourse = await Course.findOneAndUpdate(
           { _id: courseId },
+          {purchasedAt: Date.now()},
           { $push: { studentsEnrolled: userId } },
           { new: true }
         )
