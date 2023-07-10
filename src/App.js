@@ -27,6 +27,7 @@ import CourseDetails from "./pages/CourseDetails"
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import PurchaseHistory from "./components/core/Dashboard/PurchaseHistory";
 
 function App() {
 
@@ -106,7 +107,7 @@ function App() {
       <Route path="dashboard/my-profile" element={<MyProfile />} />
       
       <Route path="dashboard/Settings" element={<Settings />} />
-      
+      <Route path="dashboard/purchase-history" element={<PurchaseHistory />} />
 
       {
         user?.accountType === ACCOUNT_TYPE.STUDENT && (
