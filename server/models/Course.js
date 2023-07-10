@@ -59,7 +59,6 @@ const coursesSchema = new mongoose.Schema({
 	},
 	purchasedAt: {
 		type: Date,
-		default:Date.now()
 	}
 });
 
