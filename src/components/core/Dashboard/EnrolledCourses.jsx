@@ -46,7 +46,7 @@ export default function EnrolledCourses() {
             {/* Course Names */}
             {enrolledCourses.map((course, i, arr) => (
               <div
-                className={`flex items-center border border-richblack-700 ${
+                className={`flex items-center border border-richblack-700 hover:scale-105 hover:transition-all ${
                   i === arr.length - 1 ? "rounded-b-lg" : "rounded-none"
                 }`}
                 key={i}
